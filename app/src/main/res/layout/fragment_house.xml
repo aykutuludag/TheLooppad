@@ -1,0 +1,247 @@
+<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EEEEEE">
+
+    <android.support.percent.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/adMob">
+
+        <ImageView
+            android:id="@+id/img_thumbnail"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            app:layout_heightPercent="25%"
+            app:layout_widthPercent="50%"
+            android:background="@drawable/card_deephouse"
+            android:contentDescription="TODO"
+            android:scaleType="centerCrop" />
+
+        <ImageView
+            android:id="@+id/img_thumbnail2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            app:layout_heightPercent="25%"
+            app:layout_widthPercent="50%"
+            android:background="@drawable/card_techhouse"
+            android:contentDescription="TODO"
+            android:scaleType="centerCrop" />
+
+        <ImageView
+            android:id="@+id/img_thumbnail3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/img_thumbnail"
+            app:layout_heightPercent="25%"
+            app:layout_widthPercent="50%"
+            android:background="@drawable/card_reggaehouse"
+            android:contentDescription="TODO"
+            android:scaleType="centerCrop" />
+
+        <ImageView
+            android:id="@+id/img_thumbnail4"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/img_thumbnail2"
+            app:layout_heightPercent="25%"
+            app:layout_widthPercent="50%"
+            android:background="@drawable/card_technohouse"
+            android:contentDescription="TODO"
+            android:scaleType="centerCrop" />
+
+        <ImageView
+            android:id="@+id/img_thumbnail5"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/img_thumbnail3"
+            app:layout_heightPercent="25%"
+            app:layout_widthPercent="50%"
+            android:background="@drawable/card_futurehouse"
+            android:contentDescription="TODO"
+            android:scaleType="centerCrop" />
+
+        <ImageView
+            android:id="@+id/img_thumbnail6"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/img_thumbnail4"
+            app:layout_heightPercent="25%"
+            app:layout_widthPercent="50%"
+            android:background="@drawable/card_tribalhouse"
+            android:contentDescription="TODO"
+            android:scaleType="centerCrop" />
+
+        <ImageView
+            android:id="@+id/img_thumbnail7"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/img_thumbnail5"
+            app:layout_heightPercent="25%"
+            app:layout_widthPercent="50%"
+            android:background="@drawable/card_minimalhouse"
+            android:contentDescription="TODO"
+            android:scaleType="centerCrop" />
+
+        <ImageView
+            android:id="@+id/img_thumbnail8"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/img_thumbnail6"
+            app:layout_heightPercent="25%"
+            app:layout_widthPercent="50%"
+            android:background="@drawable/card_tropicalhouse"
+            android:contentDescription="TODO"
+            android:scaleType="centerCrop" />
+
+        <TextView
+            android:id="@+id/txt_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/img_thumbnail"
+            android:layout_alignLeft="@+id/img_thumbnail"
+            android:layout_alignRight="@+id/img_thumbnail"
+            android:background="#70000000"
+            android:paddingBottom="5dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="5dp"
+            android:text="Deep House"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/txt_text2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/img_thumbnail2"
+            android:layout_alignLeft="@+id/img_thumbnail2"
+            android:layout_alignRight="@+id/img_thumbnail2"
+            android:background="#70000000"
+            android:paddingBottom="5dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="5dp"
+            android:text="Tech House"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/txt_text3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/img_thumbnail3"
+            android:layout_alignLeft="@+id/img_thumbnail3"
+            android:layout_alignRight="@+id/img_thumbnail3"
+            android:background="#70000000"
+            android:paddingBottom="5dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="5dp"
+            android:text="Reggae House"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/txt_text4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/img_thumbnail4"
+            android:layout_alignLeft="@+id/img_thumbnail4"
+            android:layout_alignRight="@+id/img_thumbnail4"
+            android:background="#70000000"
+            android:paddingBottom="5dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="5dp"
+            android:text="Techno House"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/txt_text5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/img_thumbnail5"
+            android:layout_alignLeft="@+id/img_thumbnail5"
+            android:layout_alignRight="@+id/img_thumbnail5"
+            android:background="#70000000"
+            android:paddingBottom="5dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="5dp"
+            android:text="Future House"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/txt_text6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/img_thumbnail6"
+            android:layout_alignLeft="@+id/img_thumbnail6"
+            android:layout_alignRight="@+id/img_thumbnail6"
+            android:background="#70000000"
+            android:paddingBottom="5dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="5dp"
+            android:text="Tribal House"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/txt_text7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/img_thumbnail7"
+            android:layout_alignLeft="@+id/img_thumbnail7"
+            android:layout_alignRight="@+id/img_thumbnail7"
+            android:background="#70000000"
+            android:paddingBottom="5dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="5dp"
+            android:text="Minimal House"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/txt_text8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/img_thumbnail8"
+            android:layout_alignLeft="@+id/img_thumbnail8"
+            android:layout_alignRight="@+id/img_thumbnail8"
+            android:background="#70000000"
+            android:paddingBottom="5dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="5dp"
+            android:text="Tropical House"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
+    </android.support.percent.PercentRelativeLayout>
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adMob"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        ads:adSize="SMART_BANNER"
+        ads:adUnitId="ca-app-pub-1576175228836763/7433287732"></com.google.android.gms.ads.AdView>
+
+</android.support.percent.PercentRelativeLayout>

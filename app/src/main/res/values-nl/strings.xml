@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">The Looppad</string>
+    <string name="action_settings">Instellingen</string>
+    <string name="action_about">Over ons</string>
+    <string name="action_support">Steun ons!</string>
+    <string name="action_save">Save</string>
+    <string name="action_record">Record</string>
+    <string name="action_share">Delen</string>
+    <string name="action_mediaplayer">MediaPlayer</string>
+    <string name="drawer_open">Slider Menu Geopend</string>
+    <string name="drawer_close">Slider Menu Gesloten</string>
+    <string name="exit">Klik nogmaals terug om af te sluiten</string>
+    <string name="about_us">U&amp;U Software is een Indie Developer. Ons doel is om de kwaliteit app en games voor Android-gebruikers te ontwikkelen.</string>
+    <string name="deephouse">Deep House</string>
+    <string name="techhouse">Tech House</string>
+    <string name="reggaehouse">Reggae House</string>
+    <string name="technohouse">Techno House</string>
+    <string name="futurehouse">Future House</string>
+    <string name="tribalhouse">Tribal House</string>
+    <string name="minimalhouse">Minimal House</string>
+    <string name="tropicalhouse">Tropical House</string>
+    <string name="comingsoon">Binnenkort beschikbaar&#8230;</string>
+    <string name="loading">Geluiden worden geladen. Even geduld aub&#8230;</string>
+    <string name="record_saved">Opname werd gered&#8230;</string>
+    <string name="days">dagen</string>
+    <string name="hours">hrs</string>
+    <string name="minutes">mins</string>
+    <string name="seconds">secs</string>
+    <string name="buyPremium">Het kopen van premium-versie, kunt u alle advertenties te verwijderen in de app.</string>
+    <string name="buyTribal">Kopen Tribal House</string>
+    <string name="buyMinimal">Kopen Minimal House</string>
+    <string name="purchaseok">Bedankt voor uw aankoop! Punt activeert&#8230;</string>
+    <string name="purchasenot">Er is iets fout gegaan. Probeer het later nogmaals&#8230;</string>
+    <string name="notification">Wekelijkse mededeling:</string>
+    <string name="version">Versie</string>
+    <string name="locked">Opgesloten</string>
+    <string name="available">Beschikbaar</string>
+    <string name="theme">Thema</string>
+    <string name="light">Licht</string>
+    <string name="dark">Donker</string>
+    <string name="norecord">Er is geen records gevonden.</string>
+    <string name="chooseaction">Kies een actie</string>
+    <string name="deleted">Het bestand is verwijderd&#8230;</string>
+    <string name="settings_saved">Instellingen werd gered&#8230;</string>
+
+    <!-- Actions -->
+    <string-array name="choose_actions">
+        <item>Spelen</item>
+        <item>Delen</item>
+        <item>Verwijder</item>
+    </string-array>
+
+    <!-- Nav Drawer Menu Items -->
+    <string-array name="nav_drawer_items">
+        <item>House Loops</item>
+        <item>Archief</item>
+        <item>Samples</item>
+        <item>Koop premium!</item>
+    </string-array>
+
+    <!-- Nav Drawer List Item Icons -->
+    <array name="nav_drawer_icons">
+        <item>@drawable/ic_slider_preset</item>
+        <item>@drawable/ic_slider_preset</item>
+        <item>@drawable/ic_slider_preset</item>
+        <item>@drawable/ic_slider_records</item>
+        <item>@drawable/ic_slider_samples</item>
+        <item>@drawable/ic_slider_premium</item>
+    </array>
+
+    <!-- Content Description -->
+    <string name="desc_list_item_icon">Item Icon</string>
+
+</resources>

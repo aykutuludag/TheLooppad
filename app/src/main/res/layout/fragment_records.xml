@@ -1,0 +1,24 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#EEEEEE">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/adMob"
+        android:background="@android:color/transparent"></android.support.v7.widget.RecyclerView>
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adMob"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        ads:adSize="SMART_BANNER"
+        ads:adUnitId="ca-app-pub-1576175228836763/7433287732"></com.google.android.gms.ads.AdView>
+
+</RelativeLayout>

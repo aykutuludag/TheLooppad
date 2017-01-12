@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">The Looppad</string>
+    <string name="action_settings">настройки</string>
+    <string name="action_about">О нас</string>
+    <string name="action_support">Поддерживать нас!</string>
+    <string name="action_save">Сохранить</string>
+    <string name="action_record">запись</string>
+    <string name="action_share">доля</string>
+    <string name="action_mediaplayer">MediaPlayer</string>
+    <string name="drawer_open">Слайдер Меню Открыта</string>
+    <string name="drawer_close">Слайдер Меню Закрытая</string>
+    <string name="exit">Пожалуйста, нажмите снова, чтобы выйти</string>
+    <string name="about_us">U&amp;U Software является Инди Разработчик. Наша цель заключается в разработке качества приложений и игр для Android пользователей.</string>
+    <string name="deephouse">Дип-хаус</string>
+    <string name="techhouse">Тек-хаус</string>
+    <string name="reggaehouse">Регги-хаус</string>
+    <string name="technohouse">техно-хаус</string>
+    <string name="futurehouse">будущее-хаус</string>
+    <string name="tribalhouse">племенной-хаус</string>
+    <string name="minimalhouse">минимальный-хаус</string>
+    <string name="tropicalhouse">тропический-хаус</string>
+    <string name="comingsoon">Скоро&#8230;</string>
+    <string name="loading">Звуки загружаются. пожалуйста, подождите&#8230;</string>
+    <string name="record_saved">Запись была сохранена&#8230;</string>
+    <string name="days">дней</string>
+    <string name="hours">часов</string>
+    <string name="minutes">мин</string>
+    <string name="seconds">сек</string>
+    <string name="buyPremium">Покупка премиум-версию, вы можете удалить все объявления в приложении.</string>
+    <string name="buyTribal">Купить племенной-хаус</string>
+    <string name="buyMinimal">Купить минимальный-хаус</string>
+    <string name="purchaseok">Благодарим за покупку! Изделие активации&#8230;</string>
+    <string name="purchasenot">Что-то пошло не так. Попробуйте позже&#8230;</string>
+    <string name="notification">Еженедельное уведомление:</string>
+    <string name="version">Версия</string>
+    <string name="locked">запертый</string>
+    <string name="available">Доступный</string>
+    <string name="theme">тема</string>
+    <string name="light">Легкий</string>
+    <string name="dark">Темно</string>
+    <string name="norecord">Там нет записей найдено.</string>
+    <string name="chooseaction">Выберите действие</string>
+    <string name="deleted">Файл был удален&#8230;</string>
+    <string name="settings_saved">Настройки была сохранена&#8230;</string>
+
+    <!-- Actions -->
+    <string-array name="choose_actions">
+        <item>Играть</item>
+        <item>Поделиться</item>
+        <item>Удалить</item>
+    </string-array>
+
+    <!-- Nav Drawer Menu Items -->
+    <string-array name="nav_drawer_items">
+        <item>хаус петля</item>
+        <item>документация</item>
+        <item>образцы</item>
+        <item>Купить премию!</item>
+    </string-array>
+
+    <!-- Nav Drawer List Item Icons -->
+    <array name="nav_drawer_icons">
+        <item>@drawable/ic_slider_preset</item>
+        <item>@drawable/ic_slider_preset</item>
+        <item>@drawable/ic_slider_preset</item>
+        <item>@drawable/ic_slider_records</item>
+        <item>@drawable/ic_slider_samples</item>
+        <item>@drawable/ic_slider_premium</item>
+    </array>
+
+    <!-- Content Description -->
+    <string name="desc_list_item_icon">Пункт Иконка</string>
+
+</resources>

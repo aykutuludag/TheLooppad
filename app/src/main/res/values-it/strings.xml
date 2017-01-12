@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">The Looppad</string>
+    <string name="action_settings">Impostazioni</string>
+    <string name="action_about">Riguardo a noi</string>
+    <string name="action_support">Supportaci!</string>
+    <string name="action_save">Salvare</string>
+    <string name="action_record">Disco</string>
+    <string name="action_share">Condividere</string>
+    <string name="action_mediaplayer">MediaPlayer</string>
+    <string name="drawer_open">Slider menu Aperto</string>
+    <string name="drawer_close">Slider Menu Chiuso</string>
+    <string name="exit">Cliccate di nuovo per uscire</string>
+    <string name="about_us">U&amp;U Software è uno sviluppatore Indie. Il nostro obiettivo è quello di sviluppare app qualità e giochi per gli utenti Android.</string>
+    <string name="deephouse">Deep House</string>
+    <string name="techhouse">Tech House</string>
+    <string name="reggaehouse">Reggae House</string>
+    <string name="technohouse">Techno House</string>
+    <string name="futurehouse">Future House</string>
+    <string name="tribalhouse">Tribal House</string>
+    <string name="minimalhouse">Minimal House</string>
+    <string name="tropicalhouse">Tropical House</string>
+    <string name="comingsoon">Prossimamente&#8230;</string>
+    <string name="loading">I suoni si caricano. Attendere prego&#8230;</string>
+    <string name="record_saved">La registrazione è stata salvata&#8230;</string>
+    <string name="days">giorni</string>
+    <string name="hours">ore</string>
+    <string name="minutes">mins</string>
+    <string name="seconds">secs</string>
+    <string name="buyPremium">L\'acquisto di versione Premium, è possibile rimuovere tutti gli annunci in app.</string>
+    <string name="buyTribal">Acquista Tribal House</string>
+    <string name="buyMinimal">Acquista Minimal House</string>
+    <string name="purchaseok">Grazie per l\'acquisto! Voce sta attivando&#8230;</string>
+    <string name="purchasenot">Qualcosa è andato storto. Riprovare più tardi&#8230;</string>
+    <string name="notification">Notifica settimanale:</string>
+    <string name="version">Versione</string>
+    <string name="locked">Bloccato</string>
+    <string name="available">A disposizione</string>
+    <string name="theme">Tema</string>
+    <string name="light">Leggero</string>
+    <string name="dark">Buio</string>
+    <string name="norecord">Non ci sono segnalazioni.</string>
+    <string name="chooseaction">Scegliere un\'azione</string>
+    <string name="deleted">Il file è stato cancellato&#8230;</string>
+    <string name="settings_saved">Impostazioni è stato salvato&#8230;</string>
+
+    <!-- Actions -->
+    <string-array name="choose_actions">
+        <item>Giocare</item>
+        <item>Condividere</item>
+        <item>Cancellare</item>
+    </string-array>
+
+    <!-- Nav Drawer Menu Items -->
+    <string-array name="nav_drawer_items">
+        <item>House Loops</item>
+        <item>Records</item>
+        <item>Campioni</item>
+        <item>Acquista premio!</item>
+    </string-array>
+
+    <!-- Nav Drawer List Item Icons -->
+    <array name="nav_drawer_icons">
+        <item>@drawable/ic_slider_preset</item>
+        <item>@drawable/ic_slider_preset</item>
+        <item>@drawable/ic_slider_preset</item>
+        <item>@drawable/ic_slider_records</item>
+        <item>@drawable/ic_slider_samples</item>
+        <item>@drawable/ic_slider_premium</item>
+    </array>
+
+    <!-- Content Description -->
+    <string name="desc_list_item_icon">Icona voce</string>
+
+</resources>

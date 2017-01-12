@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">The Looppad</string>
+    <string name="action_settings">Ajustes</string>
+    <string name="action_about">Acerca de</string>
+    <string name="action_support">¡Apoyanos!</string>
+    <string name="action_save">Sobre nosotros</string>
+    <string name="action_record">Grabar</string>
+    <string name="action_share">Compartir</string>
+    <string name="action_mediaplayer">MediaPlayer</string>
+    <string name="drawer_open">Deslizador menú abiertos</string>
+    <string name="drawer_close">Deslizador Menú Cerrada</string>
+    <string name="exit">Por favor, haga clic de nuevo para salir</string>
+    <string name="about_us">U&amp;U Software es un desarrollador independiente. Nuestro objetivo es desarrollar aplicaciones y juegos para los usuarios de Android calidad.</string>
+    <string name="deephouse">Deep House</string>
+    <string name="techhouse">Tech House</string>
+    <string name="reggaehouse">Reggae House</string>
+    <string name="technohouse">Techno House</string>
+    <string name="futurehouse">Future House</string>
+    <string name="tribalhouse">Tribal House</string>
+    <string name="minimalhouse">Minimal House</string>
+    <string name="tropicalhouse">Tropical House</string>
+    <string name="comingsoon">Próximamente&#8230;</string>
+    <string name="loading">Los sonidos están cargando. por favor espera&#8230;</string>
+    <string name="record_saved">La grabación se ha guardado&#8230;</string>
+    <string name="days">días</string>
+    <string name="hours">horas</string>
+    <string name="minutes">mins</string>
+    <string name="seconds">segs</string>
+    <string name="buyPremium">La compra de la versión premium, puede eliminar todos los anuncios en aplicaciones.</string>
+    <string name="buyTribal">Comprar Tribal House</string>
+    <string name="buyMinimal">Comprar Casa Minimal</string>
+    <string name="purchaseok">Gracias por su compra! El artículo está activando&#8230;</string>
+    <string name="purchasenot">Algo salió mal. Inténtelo más tarde&#8230;</string>
+    <string name="notification">La notificación semanal:</string>
+    <string name="version">Versión</string>
+    <string name="locked">Bloqueado</string>
+    <string name="available">Disponible</string>
+    <string name="theme">Tema</string>
+    <string name="light">Ligero</string>
+    <string name="dark">Oscuro</string>
+    <string name="norecord">No hay registros encontrados.</string>
+    <string name="chooseaction">Elige una acción</string>
+    <string name="deleted">El archivo fue eliminado&#8230;</string>
+    <string name="settings_saved">Ajustes se guardarán&#8230;</string>
+
+    <!-- Actions -->
+    <string-array name="choose_actions">
+        <item>Jugar</item>
+        <item>Compartir</item>
+        <item>Borrar</item>
+    </string-array>
+
+    <!-- Nav Drawer Menu Items -->
+    <string-array name="nav_drawer_items">
+        <item>House Loops</item>
+        <item>Archivos</item>
+        <item>Las muestras</item>
+        <item>Comprar prima!</item>
+    </string-array>
+
+    <!-- Nav Drawer List Item Icons -->
+    <array name="nav_drawer_icons">
+        <item>@drawable/ic_slider_preset</item>
+        <item>@drawable/ic_slider_preset</item>
+        <item>@drawable/ic_slider_preset</item>
+        <item>@drawable/ic_slider_records</item>
+        <item>@drawable/ic_slider_samples</item>
+        <item>@drawable/ic_slider_premium</item>
+    </array>
+
+    <!-- Content Description -->
+    <string name="desc_list_item_icon">Icono elemento</string>
+
+</resources>

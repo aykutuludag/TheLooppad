@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">The Looppad</string>
+    <string name="action_settings">Paramètres</string>
+    <string name="action_about">À propos de nous</string>
+    <string name="action_support">Soutenez-nous!</string>
+    <string name="action_save">Sauvegarder</string>
+    <string name="action_record">Record</string>
+    <string name="action_share">Partager</string>
+    <string name="action_mediaplayer">MediaPlayer</string>
+    <string name="drawer_open">Curseur Menu Ouvert</string>
+    <string name="drawer_close">Curseur Menu Fermé</string>
+    <string name="exit">S\'il vous plaît cliquer à nouveau pour quitter</string>
+    <string name="about_us">U&amp;U Software est un développeur indépendant. Notre objectif est de développer l\'application et des jeux pour les utilisateurs Android qualité.</string>
+    <string name="deephouse">Deep House</string>
+    <string name="techhouse">Tech House</string>
+    <string name="reggaehouse">Reggae House</string>
+    <string name="technohouse">Techno House</string>
+    <string name="futurehouse">Future House</string>
+    <string name="tribalhouse">Tribal House</string>
+    <string name="minimalhouse">Minimal House</string>
+    <string name="tropicalhouse">Tropical House</string>
+    <string name="comingsoon">Arrive bientôt&#8230;</string>
+    <string name="loading">Les sons sont en cours de chargement. S\'il vous plaît, attendez&#8230;</string>
+    <string name="record_saved">L\'enregistrement a été sauvé&#8230;</string>
+    <string name="days">journées</string>
+    <string name="hours">hrs</string>
+    <string name="minutes">mins</string>
+    <string name="seconds">secs</string>
+    <string name="buyPremium">Acheter la version premium, vous pouvez supprimer toutes les annonces dans l\'application.</string>
+    <string name="buyTribal">Acheter Tribal House</string>
+    <string name="buyMinimal">Acheter Minimal House</string>
+    <string name="purchaseok">Merci d\'avoir effectué un achat! Point est l\'activation&#8230;</string>
+    <string name="purchasenot">Quelque chose a mal tourné. Réessayez plus tard&#8230;</string>
+    <string name="notification">Communication hebdomadaire:</string>
+    <string name="version">Version</string>
+    <string name="locked">Fermé à clef</string>
+    <string name="available">Disponible</string>
+    <string name="theme">Thème</string>
+    <string name="light">Lumière</string>
+    <string name="dark">Foncé</string>
+    <string name="norecord">Il n\'y a pas de dossiers.</string>
+    <string name="chooseaction">Choisissez une action</string>
+    <string name="deleted">Le fichier à été supprimé&#8230;</string>
+    <string name="settings_saved">Les paramètres ont été enregistrés&#8230;</string>
+
+    <!-- Actions -->
+    <string-array name="choose_actions">
+        <item>Jouer</item>
+        <item>Partager</item>
+        <item>Effacer</item>
+    </string-array>
+
+    <!-- Nav Drawer Menu Items -->
+    <string-array name="nav_drawer_items">
+        <item>House Loops</item>
+        <item>Enregistrements</item>
+        <item>Echantillons</item>
+        <item>Acheter premium!</item>
+    </string-array>
+
+    <!-- Nav Drawer List Item Icons -->
+    <array name="nav_drawer_icons">
+        <item>@drawable/ic_slider_preset</item>
+        <item>@drawable/ic_slider_preset</item>
+        <item>@drawable/ic_slider_preset</item>
+        <item>@drawable/ic_slider_records</item>
+        <item>@drawable/ic_slider_samples</item>
+        <item>@drawable/ic_slider_premium</item>
+    </array>
+
+    <!-- Content Description -->
+    <string name="desc_list_item_icon">Point Icône</string>
+
+</resources>

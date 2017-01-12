@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">The Looppad</string>
+    <string name="action_settings">Ayarlar</string>
+    <string name="action_about">Hakkımızda</string>
+    <string name="action_support">Bizi destekle!</string>
+    <string name="action_save">Kaydet</string>
+    <string name="action_record">Kayıt</string>
+    <string name="action_share">Paylaş</string>
+    <string name="action_mediaplayer">MediaPlayer</string>
+    <string name="drawer_open">Sol menü açıldı</string>
+    <string name="drawer_close">Sol menü kapandı</string>
+    <string name="exit">Çıkmak için tekrar dokunun</string>
+    <string name="about_us">U&amp;U Software Android kullanıcıları için yüksek kaliteli oyun ve uygulamalar geliştirmeyi hedefleyen bir Indie Developerdır.</string>
+    <string name="deephouse">Deep House</string>
+    <string name="techhouse">Tech House</string>
+    <string name="reggaehouse">Reggae House</string>
+    <string name="technohouse">Techno House</string>
+    <string name="futurehouse">Future House</string>
+    <string name="tribalhouse">Tribal House</string>
+    <string name="minimalhouse">Minimal House</string>
+    <string name="tropicalhouse">Tropical House</string>
+    <string name="comingsoon">Yakında&#8230;</string>
+    <string name="loading">Sesler yükleniyor. Lütfen bekleyiniz&#8230;</string>
+    <string name="record_saved">Ses kaydı kaydedildi&#8230;</string>
+    <string name="days">gün</string>
+    <string name="hours">saat</string>
+    <string name="minutes">dakika</string>
+    <string name="seconds">saniye</string>
+    <string name="buyPremium">Premium sürüme geçerek uygulama içerisindeki tüm reklamları silebilirsiniz.</string>
+    <string name="buyTribal">Tribal House satın al</string>
+    <string name="buyMinimal">Minimal House satın al</string>
+    <string name="purchaseok">Satın alma için teşekkürler. Ürününüz etkinleştiriliyor&#8230;</string>
+    <string name="purchasenot">Bir şeyler yanlış gitti. Lütfen daha sonra tekrar deneyiniz&#8230;</string>
+    <string name="notification">Haftalık bildirim:</string>
+    <string name="version">Sürüm</string>
+    <string name="locked">Kilitli</string>
+    <string name="available">Mevcut</string>
+    <string name="theme">Tema</string>
+    <string name="light">Açık</string>
+    <string name="dark">Koyu</string>
+    <string name="norecord">Ses kaydı bulunamadı.</string>
+    <string name="chooseaction">Bir eylem seçin</string>
+    <string name="deleted">Dosya silindi&#8230;</string>
+    <string name="settings_saved">Ayarlarınız kaydedildi&#8230;</string>
+
+    <!-- Actions -->
+    <string-array name="choose_actions">
+        <item>Oynat</item>
+        <item>Paylaş</item>
+        <item>Sil</item>
+    </string-array>
+
+    <!-- Nav Drawer Menu Items -->
+    <string-array name="nav_drawer_items">
+        <item>House Loops</item>
+        <item>Electro Loops</item>
+        <item>Dubstep Loops</item>
+        <item>Kayıtlar</item>
+        <item>Örnekler</item>
+        <item>Premium sürüme geçin!</item>
+    </string-array>
+
+    <!-- Nav Drawer List Item Icons -->
+    <array name="nav_drawer_icons">
+        <item>@drawable/ic_slider_preset</item>
+        <item>@drawable/ic_slider_preset</item>
+        <item>@drawable/ic_slider_preset</item>
+        <item>@drawable/ic_slider_records</item>
+        <item>@drawable/ic_slider_samples</item>
+        <item>@drawable/ic_slider_premium</item>
+    </array>
+
+    <!-- Content Description -->
+    <string name="desc_list_item_icon">Öğe ikonu</string>
+
+</resources>

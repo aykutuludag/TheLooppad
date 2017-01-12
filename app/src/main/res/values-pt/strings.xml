@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">The Looppad</string>
+    <string name="action_settings">Configurações</string>
+    <string name="action_about">Sobre nós</string>
+    <string name="action_support">Apoie-nos!</string>
+    <string name="action_save">Salvar</string>
+    <string name="action_record">Registro</string>
+    <string name="action_share">Compartilhar</string>
+    <string name="action_mediaplayer">MediaPlayer</string>
+    <string name="drawer_open">Menu deslizante aberta</string>
+    <string name="drawer_close">Menu deslizante Fechado</string>
+    <string name="exit">Por favor, clique novamente para sair</string>
+    <string name="about_us">U&amp;U Software é um desenvolvedor Indie. O nosso objectivo é desenvolver app qualidade e jogos para os usuários do Android.</string>
+    <string name="deephouse">Deep House</string>
+    <string name="techhouse">Tech House</string>
+    <string name="reggaehouse">Reggae House</string>
+    <string name="technohouse">Techno House</string>
+    <string name="futurehouse">Future House</string>
+    <string name="tribalhouse">Tribal House</string>
+    <string name="minimalhouse">Minimal House</string>
+    <string name="tropicalhouse">Tropical House</string>
+    <string name="comingsoon">Em breve&#8230;</string>
+    <string name="loading">Sons está carregando. Por favor, espere&#8230;</string>
+    <string name="record_saved">A gravação foi salvo&#8230;</string>
+    <string name="days">dias</string>
+    <string name="hours">hrs</string>
+    <string name="minutes">mins</string>
+    <string name="seconds">seg</string>
+    <string name="buyPremium">Comprar versão premium, você pode remover todos os anúncios em app.</string>
+    <string name="buyTribal">Comprar Tribal House</string>
+    <string name="buyMinimal">Comprar Minimal House</string>
+    <string name="purchaseok">Thank you for purchasing! Item is activating&#8230;</string>
+    <string name="purchasenot">Something went wrong. Try again later&#8230;</string>
+    <string name="notification">Comunicação semanal:</string>
+    <string name="version">Versão</string>
+    <string name="locked">Trancado</string>
+    <string name="available">Disponível</string>
+    <string name="theme">Tema</string>
+    <string name="light">Leve</string>
+    <string name="dark">Escuro</string>
+    <string name="norecord">Não há dados encontrados.</string>
+    <string name="chooseaction">Escolha uma ação</string>
+    <string name="deleted">Arquivo foi deletado&#8230;</string>
+    <string name="settings_saved">Definições foi salvo&#8230;</string>
+
+    <!-- Actions -->
+    <string-array name="choose_actions">
+        <item>Toque</item>
+        <item>Compartilhar</item>
+        <item>Excluir</item>
+    </string-array>
+
+    <!-- Nav Drawer Menu Items -->
+    <string-array name="nav_drawer_items">
+        <item>House Loops</item>
+        <item>Registros</item>
+        <item>Amostras</item>
+        <item>Compre premium!</item>
+    </string-array>
+
+    <!-- Nav Drawer List Item Icons -->
+    <array name="nav_drawer_icons">
+        <item>@drawable/ic_slider_preset</item>
+        <item>@drawable/ic_slider_preset</item>
+        <item>@drawable/ic_slider_preset</item>
+        <item>@drawable/ic_slider_records</item>
+        <item>@drawable/ic_slider_samples</item>
+        <item>@drawable/ic_slider_premium</item>
+    </array>
+
+    <!-- Content Description -->
+    <string name="desc_list_item_icon">Ícone item</string>
+
+</resources>

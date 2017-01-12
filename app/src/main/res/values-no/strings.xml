@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">The Looppad</string>
+    <string name="action_settings">Innstillinger</string>
+    <string name="action_about">Om oss</string>
+    <string name="action_support">Støtt oss!</string>
+    <string name="action_save">Spare</string>
+    <string name="action_record">Rekord</string>
+    <string name="action_share">Dele</string>
+    <string name="action_mediaplayer">MediaPlayer</string>
+    <string name="drawer_open">Slider Meny Åpnet</string>
+    <string name="drawer_close">Slider Meny Stengt</string>
+    <string name="exit">Vennligst klikk tilbake igjen for å avslutte</string>
+    <string name="about_us">U&amp;U Software er en Indie Utvikler. Vårt mål er å utvikle kvalitet app og spill for Android-brukere.</string>
+    <string name="deephouse">Deep House</string>
+    <string name="techhouse">Tech House</string>
+    <string name="reggaehouse">Reggae House</string>
+    <string name="technohouse">Techno House</string>
+    <string name="futurehouse">Future House</string>
+    <string name="tribalhouse">Tribal House</string>
+    <string name="minimalhouse">Minimal House</string>
+    <string name="tropicalhouse">Tropical House</string>
+    <string name="comingsoon">Kommer snart&#8230;</string>
+    <string name="loading">Lyder legger inn. Vennligst vent&#8230;</string>
+    <string name="record_saved">Opptaket ble lagret&#8230;</string>
+    <string name="days">dager</string>
+    <string name="hours">hrs</string>
+    <string name="minutes">mins</string>
+    <string name="seconds">sek</string>
+    <string name="buyPremium">Kjøpe premium-versjonen, kan du fjerne alle annonsene i programmet.</string>
+    <string name="buyTribal">Kjøp Tribal House</string>
+    <string name="buyMinimal">Kjøp Minimal House</string>
+    <string name="purchaseok">Takk for at du kjøper! Sak aktiverer&#8230;</string>
+    <string name="purchasenot">Noe gikk galt. Prøv igjen senere&#8230;</string>
+    <string name="notification">Ukentlig melding:</string>
+    <string name="version">Versjon</string>
+    <string name="locked">Låst</string>
+    <string name="available">Tilgjengelig</string>
+    <string name="theme">Tema</string>
+    <string name="light">Lett</string>
+    <string name="dark">Mørk</string>
+    <string name="norecord">Det er ingen poster funnet.</string>
+    <string name="chooseaction">Velg en handling</string>
+    <string name="deleted">Filen ble slettet&#8230;</string>
+    <string name="settings_saved">Innstillingene ble lagret&#8230;</string>
+
+    <!-- Actions -->
+    <string-array name="choose_actions">
+        <item>Spille</item>
+        <item>Dele</item>
+        <item>Slett</item>
+    </string-array>
+
+    <!-- Nav Drawer Menu Items -->
+    <string-array name="nav_drawer_items">
+        <item>House Loops</item>
+        <item>Records</item>
+        <item>Prøver</item>
+        <item>Kjøpe premie!</item>
+    </string-array>
+
+    <!-- Nav Drawer List Item Icons -->
+    <array name="nav_drawer_icons">
+        <item>@drawable/ic_slider_preset</item>
+        <item>@drawable/ic_slider_preset</item>
+        <item>@drawable/ic_slider_preset</item>
+        <item>@drawable/ic_slider_records</item>
+        <item>@drawable/ic_slider_samples</item>
+        <item>@drawable/ic_slider_premium</item>
+    </array>
+
+    <!-- Content Description -->
+    <string name="desc_list_item_icon">Sak Ikon</string>
+
+</resources>

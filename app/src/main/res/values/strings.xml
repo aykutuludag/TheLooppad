@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">The Looppad</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_about">About</string>
+    <string name="action_support">Support us</string>
+    <string name="action_save">Save</string>
+    <string name="action_record">Record</string>
+    <string name="action_share">Share</string>
+    <string name="action_mediaplayer">MediaPlayer</string>
+    <string name="drawer_open">Slider Menu Opened</string>
+    <string name="drawer_close">Slider Menu Closed</string>
+    <string name="exit">Please click back again to exit</string>
+    <string name="about_us">U&amp;U Software is an Indie Developer. Our aim is to develop quality app and games for Android users.</string>
+    <string name="deephouse">Deep House</string>
+    <string name="techhouse">Tech House</string>
+    <string name="reggaehouse">Reggae House</string>
+    <string name="technohouse">Techno House</string>
+    <string name="futurehouse">Future House</string>
+    <string name="tribalhouse">Tribal House</string>
+    <string name="minimalhouse">Minimal House</string>
+    <string name="tropicalhouse">Tropical House</string>
+    <string name="comingsoon">Coming soon&#8230;</string>
+    <string name="loading">Sounds are loading. Please wait&#8230;</string>
+    <string name="record_saved">Recording was saved&#8230;</string>
+    <string name="buyPremium">You can remove all ads by purchasing Premium Version</string>
+    <string name="buyTribal">Buy Tribal House</string>
+    <string name="buyMinimal">Buy Minimal House</string>
+    <string name="purchaseok">Thank you for purchasing! Item is activating&#8230;</string>
+    <string name="purchasenot">Something went wrong. Try again later&#8230;</string>
+    <string name="notification">Weekly notification:</string>
+    <string name="version">Version</string>
+    <string name="locked">Locked</string>
+    <string name="available">Available</string>
+    <string name="theme">Night mode</string>
+    <string name="light">On</string>
+    <string name="dark">Off</string>
+    <string name="norecord">There is no records found.</string>
+    <string name="chooseaction">Choose an action</string>
+    <string name="deleted">File was deleted&#8230;</string>
+    <string name="settings_saved">Settings was saved&#8230;</string>
+
+    <!-- Actions -->
+    <string-array name="choose_actions">
+        <item>Play</item>
+        <item>Share</item>
+        <item>Delete</item>
+    </string-array>
+
+    <!-- Nav Drawer Menu Items -->
+    <string-array name="nav_drawer_items">
+        <item>House Loops</item>
+        <item>Records</item>
+        <item>Samples</item>
+        <item>Settings</item>
+        <item>About</item>
+        <item>Support us</item>
+        <item>Buy premium!</item>
+    </string-array>
+
+    <!-- Nav Drawer List Item Icons -->
+    <array name="nav_drawer_icons">
+        <item>@drawable/ic_slider_preset</item>
+        <item>@drawable/ic_slider_records</item>
+        <item>@drawable/ic_slider_samples</item>
+        <item>@drawable/ic_slider_premium</item>
+    </array>
+
+    <!-- Content Description -->
+    <string name="desc_list_item_icon">Item Icon</string>
+
+</resources>
