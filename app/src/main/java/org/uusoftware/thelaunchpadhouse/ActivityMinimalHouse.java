@@ -57,8 +57,12 @@ import java.util.concurrent.TimeUnit;
 
 public class ActivityMinimalHouse extends AppCompatActivity {
 
-    int color = Color.parseColor("#FAFAFA");
-    int color2 = Color.parseColor("#EEEEEE");
+    private static final int RECORDER_BPP = 16;
+    private static final String FILE_EXT = ".wav";
+    private static final String THE_LOOPPAD_FOLDER = "The Looppad";
+    private static final String RECORDER_TEMP_FILE = "record_temp.raw";
+    private static final int RECORDER_SAMPLERATE = 44100;
+    private static final int RECORDER_AUDIO_ENCODING = AudioFormat.ENCODING_PCM_16BIT;
     ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
     Runnable runnable0;
     SoundPool mSoundPool = null;
@@ -76,16 +80,10 @@ public class ActivityMinimalHouse extends AppCompatActivity {
     Drawable record;
     Animation mAnimation;
     MenuItem mRecord;
-    private static final int RECORDER_BPP = 16;
-    private static final String FILE_EXT = ".wav";
-    private static final String THE_LOOPPAD_FOLDER = "The Looppad";
-    private static final String RECORDER_TEMP_FILE = "record_temp.raw";
-    private static final int RECORDER_SAMPLERATE = 44100;
-    private static final int RECORDER_AUDIO_ENCODING = AudioFormat.ENCODING_PCM_16BIT;
+    AudioManager am;
     private AudioRecord recorder = null;
     private int bufferSize;
     private Thread recordingThread = null;
-    AudioManager am;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,11 +99,13 @@ public class ActivityMinimalHouse extends AppCompatActivity {
         window = this.getWindow();
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         if (android.os.Build.VERSION.SDK_INT >= 21) {
-            bar.setBackgroundDrawable(new ColorDrawable(color2));
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            window.setStatusBarColor(color);
-        } else {
-            bar.setBackgroundDrawable(new ColorDrawable(color2));
+            if (android.os.Build.VERSION.SDK_INT >= 21) {
+                bar.setBackgroundDrawable(new ColorDrawable(ContextCompat.getColor(this, R.color.MinimalHousePrimary)));
+                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+                window.setStatusBarColor(ContextCompat.getColor(this, R.color.MinimalHouseDark));
+            } else {
+                bar.setBackgroundDrawable(new ColorDrawable(ContextCompat.getColor(this, R.color.MinimalHousePrimary)));
+            }
         }
 
         // LoaderProgres
@@ -138,7 +138,7 @@ public class ActivityMinimalHouse extends AppCompatActivity {
         }
 
         // Analytics
-        t = ((AnalyticsApplication) this.getApplication()).getDefaultTracker();
+        t = ((ActivityAnalytics) this.getApplication()).getDefaultTracker();
         t.setScreenName("Minimal House");
         t.enableAdvertisingIdCollection(true);
         t.send(new HitBuilders.ScreenViewBuilder().build());
@@ -454,43 +454,6 @@ public class ActivityMinimalHouse extends AppCompatActivity {
         }
     }
 
-    class SoundLoader extends AsyncTask<String, Integer, String> {
-        @Override
-        protected String doInBackground(String... params) {
-            // Load the sample IDs
-            soundId[0] = mSoundPool.load(ActivityMinimalHouse.this, R.raw.minimalhouse_bass_1, 1);
-            soundId[1] = mSoundPool.load(ActivityMinimalHouse.this, R.raw.minimalhouse_bass_2, 1);
-            soundId[4] = mSoundPool.load(ActivityMinimalHouse.this, R.raw.minimalhouse_bass_3, 1);
-            soundId[5] = mSoundPool.load(ActivityMinimalHouse.this, R.raw.minimalhouse_bass_4, 1);
-            soundId[2] = mSoundPool.load(ActivityMinimalHouse.this, R.raw.minimalhouse_fx_1, 1);
-            soundId[3] = mSoundPool.load(ActivityMinimalHouse.this, R.raw.minimalhouse_fx_2, 1);
-            soundId[6] = mSoundPool.load(ActivityMinimalHouse.this, R.raw.minimalhouse_fx_3, 1);
-            soundId[7] = mSoundPool.load(ActivityMinimalHouse.this, R.raw.minimalhouse_fx_4, 1);
-            soundId[8] = mSoundPool.load(ActivityMinimalHouse.this, R.raw.minimalhouse_kick_1, 1);
-            soundId[9] = mSoundPool.load(ActivityMinimalHouse.this, R.raw.minimalhouse_kick_2, 1);
-            soundId[12] = mSoundPool.load(ActivityMinimalHouse.this, R.raw.minimalhouse_kick_3, 1);
-            soundId[13] = mSoundPool.load(ActivityMinimalHouse.this, R.raw.minimalhouse_kick_4, 1);
-            soundId[10] = mSoundPool.load(ActivityMinimalHouse.this, R.raw.minimalhouse_lead_1, 1);
-            soundId[11] = mSoundPool.load(ActivityMinimalHouse.this, R.raw.minimalhouse_lead_2, 1);
-            soundId[14] = mSoundPool.load(ActivityMinimalHouse.this, R.raw.minimalhouse_lead_3, 1);
-            soundId[15] = mSoundPool.load(ActivityMinimalHouse.this, R.raw.minimalhouse_lead_4, 1);
-            soundId[16] = mSoundPool.load(ActivityMinimalHouse.this, R.raw.minimalhouse_loop_1, 1);
-            soundId[17] = mSoundPool.load(ActivityMinimalHouse.this, R.raw.minimalhouse_loop_2, 1);
-            soundId[20] = mSoundPool.load(ActivityMinimalHouse.this, R.raw.minimalhouse_loop_3, 1);
-            soundId[21] = mSoundPool.load(ActivityMinimalHouse.this, R.raw.minimalhouse_loop_4, 1);
-            soundId[18] = mSoundPool.load(ActivityMinimalHouse.this, R.raw.minimalhouse_perc_1, 1);
-            soundId[19] = mSoundPool.load(ActivityMinimalHouse.this, R.raw.minimalhouse_perc_2, 1);
-            soundId[22] = mSoundPool.load(ActivityMinimalHouse.this, R.raw.minimalhouse_perc_3, 1);
-            soundId[23] = mSoundPool.load(ActivityMinimalHouse.this, R.raw.minimalhouse_perc_4, 1);
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(String result) {
-            super.onPostExecute(result);
-        }
-    }
-
     public void startAudio(final int i, final int j, final int k, final int l) {
         pb[i].setVisibility(View.VISIBLE);
         pb[j].setVisibility(View.INVISIBLE);
@@ -748,7 +711,7 @@ public class ActivityMinimalHouse extends AppCompatActivity {
     public void onResume() {
         super.onResume();
         if (mSoundPool == null) {
-            Intent intent = new Intent(this, ActivityDeepHouse.class);
+            Intent intent = new Intent(this, ActivityMinimalHouse.class);
             startActivity(intent);
             finish();
         } else {
@@ -766,5 +729,42 @@ public class ActivityMinimalHouse extends AppCompatActivity {
             killSoundPoolandExecutor();
         }
         finish();
+    }
+
+    class SoundLoader extends AsyncTask<String, Integer, String> {
+        @Override
+        protected String doInBackground(String... params) {
+            // Load the sample IDs
+            soundId[0] = mSoundPool.load(ActivityMinimalHouse.this, R.raw.minimalhouse_bass_1, 1);
+            soundId[1] = mSoundPool.load(ActivityMinimalHouse.this, R.raw.minimalhouse_bass_2, 1);
+            soundId[4] = mSoundPool.load(ActivityMinimalHouse.this, R.raw.minimalhouse_bass_3, 1);
+            soundId[5] = mSoundPool.load(ActivityMinimalHouse.this, R.raw.minimalhouse_bass_4, 1);
+            soundId[2] = mSoundPool.load(ActivityMinimalHouse.this, R.raw.minimalhouse_fx_1, 1);
+            soundId[3] = mSoundPool.load(ActivityMinimalHouse.this, R.raw.minimalhouse_fx_2, 1);
+            soundId[6] = mSoundPool.load(ActivityMinimalHouse.this, R.raw.minimalhouse_fx_3, 1);
+            soundId[7] = mSoundPool.load(ActivityMinimalHouse.this, R.raw.minimalhouse_fx_4, 1);
+            soundId[8] = mSoundPool.load(ActivityMinimalHouse.this, R.raw.minimalhouse_kick_1, 1);
+            soundId[9] = mSoundPool.load(ActivityMinimalHouse.this, R.raw.minimalhouse_kick_2, 1);
+            soundId[12] = mSoundPool.load(ActivityMinimalHouse.this, R.raw.minimalhouse_kick_3, 1);
+            soundId[13] = mSoundPool.load(ActivityMinimalHouse.this, R.raw.minimalhouse_kick_4, 1);
+            soundId[10] = mSoundPool.load(ActivityMinimalHouse.this, R.raw.minimalhouse_lead_1, 1);
+            soundId[11] = mSoundPool.load(ActivityMinimalHouse.this, R.raw.minimalhouse_lead_2, 1);
+            soundId[14] = mSoundPool.load(ActivityMinimalHouse.this, R.raw.minimalhouse_lead_3, 1);
+            soundId[15] = mSoundPool.load(ActivityMinimalHouse.this, R.raw.minimalhouse_lead_4, 1);
+            soundId[16] = mSoundPool.load(ActivityMinimalHouse.this, R.raw.minimalhouse_loop_1, 1);
+            soundId[17] = mSoundPool.load(ActivityMinimalHouse.this, R.raw.minimalhouse_loop_2, 1);
+            soundId[20] = mSoundPool.load(ActivityMinimalHouse.this, R.raw.minimalhouse_loop_3, 1);
+            soundId[21] = mSoundPool.load(ActivityMinimalHouse.this, R.raw.minimalhouse_loop_4, 1);
+            soundId[18] = mSoundPool.load(ActivityMinimalHouse.this, R.raw.minimalhouse_perc_1, 1);
+            soundId[19] = mSoundPool.load(ActivityMinimalHouse.this, R.raw.minimalhouse_perc_2, 1);
+            soundId[22] = mSoundPool.load(ActivityMinimalHouse.this, R.raw.minimalhouse_perc_3, 1);
+            soundId[23] = mSoundPool.load(ActivityMinimalHouse.this, R.raw.minimalhouse_perc_4, 1);
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+        }
     }
 }

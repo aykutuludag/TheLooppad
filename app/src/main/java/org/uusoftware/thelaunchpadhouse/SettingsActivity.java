@@ -4,9 +4,9 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
-import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -25,14 +25,12 @@ import com.google.android.gms.ads.AdView;
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
 
-public class ActivitySettings extends AppCompatActivity {
+public class SettingsActivity extends AppCompatActivity {
 
     Switch mySwitch, mySwitch2;
     SharedPreferences.Editor editor;
     SharedPreferences prefs;
     boolean theme, alarmon, premium, minimal, tribal;
-    int color = Color.parseColor("#616161");
-    int color2 = Color.parseColor("#9E9E9E");
     Window window;
     ActionBar bar;
     PackageInfo pInfo;
@@ -63,16 +61,19 @@ public class ActivitySettings extends AppCompatActivity {
         // Theme
         bar = this.getSupportActionBar();
         window = this.getWindow();
+        window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         if (android.os.Build.VERSION.SDK_INT >= 21) {
-            bar.setBackgroundDrawable(new ColorDrawable(color2));
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            window.setStatusBarColor(color);
-        } else {
-            bar.setBackgroundDrawable(new ColorDrawable(color2));
+            if (android.os.Build.VERSION.SDK_INT >= 21) {
+                bar.setBackgroundDrawable(new ColorDrawable(ContextCompat.getColor(this, R.color.MainPrimary)));
+                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+                window.setStatusBarColor(ContextCompat.getColor(this, R.color.MainDark));
+            } else {
+                bar.setBackgroundDrawable(new ColorDrawable(ContextCompat.getColor(this, R.color.MainPrimary)));
+            }
         }
 
         // Analytics
-        t = ((AnalyticsApplication) this.getApplication()).getDefaultTracker();
+        t = ((ActivityAnalytics) this.getApplication()).getDefaultTracker();
         t.setScreenName("Settings");
         t.enableAdvertisingIdCollection(true);
         t.send(new HitBuilders.ScreenViewBuilder().build());

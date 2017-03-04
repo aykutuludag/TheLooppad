@@ -19,8 +19,6 @@ import java.util.ArrayList;
 
 public class NavDrawerListAdapter extends BaseAdapter {
 
-	private Context context;
-	private ArrayList<NavDrawerItem> navDrawerItems;
 	String str1 = "https://www.facebook.com/thelooppad";
 	String str2 = "https://twitter.com/thelooppad";
 	String str3 = "https://soundcloud.com/gokhantaskan";
@@ -28,6 +26,8 @@ public class NavDrawerListAdapter extends BaseAdapter {
 	String str5 = "https://plus.google.com/b/109529136927165843696/109529136927165843696";
 	boolean premium;
 	int position2;
+	private Context context;
+	private ArrayList<NavDrawerItem> navDrawerItems;
 
 	public NavDrawerListAdapter(Context context, ArrayList<NavDrawerItem> navDrawerItems) {
 		this.context = context;
@@ -53,9 +53,9 @@ public class NavDrawerListAdapter extends BaseAdapter {
 	public View getView(int position, View convertView, ViewGroup parent) {
 		premium = MainActivity.premium;
 		if (premium) {
-			position2 = 3;
+			position2 = 6;
 		} else {
-			position2 = 4;
+			position2 = 7;
 		}
 
 		if (convertView == null) {

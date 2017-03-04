@@ -24,6 +24,7 @@ import com.google.android.gms.analytics.Tracker;
 
 public class FragmentHouse extends Fragment {
 
+    static Intent intent;
     ImageView button0, button1, button2, button3, button4, button5, button6, button7;
     int color = Color.parseColor("#000000");
     int color2 = Color.parseColor("#212121");
@@ -31,12 +32,15 @@ public class FragmentHouse extends Fragment {
     ActionBar bar;
     Tracker t;
     boolean premium, tribal, minimal;
-    static Intent intent;
     long a, b;
+    boolean displayed, displayed2, displayed3, displayed4 = false;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_house, container, false);
+
+        a = System.currentTimeMillis();
+        b = System.currentTimeMillis();
 
         // Theme
         bar = ((MainActivity) getActivity()).getSupportActionBar();
@@ -60,7 +64,7 @@ public class FragmentHouse extends Fragment {
         }
 
         // Analytics
-        t = ((AnalyticsApplication) getActivity().getApplication()).getDefaultTracker();
+        t = ((ActivityAnalytics) getActivity().getApplication()).getDefaultTracker();
         t.setScreenName("House Loops");
         t.enableAdvertisingIdCollection(true);
         t.send(new HitBuilders.ScreenViewBuilder().build());
@@ -83,7 +87,7 @@ public class FragmentHouse extends Fragment {
                     case R.id.img_thumbnail:
                         intent = new Intent(getActivity(), ActivityDeepHouse.class);
                         if (!premium) {
-                            showAds(0);
+                            showAds();
                         } else {
                             getActivity().startActivity(intent);
                         }
@@ -91,7 +95,7 @@ public class FragmentHouse extends Fragment {
                     case R.id.img_thumbnail2:
                         intent = new Intent(getActivity(), ActivityTechHouse.class);
                         if (!premium) {
-                            showAds(1);
+                            showAds();
                         } else {
                             getActivity().startActivity(intent);
                         }
@@ -99,7 +103,7 @@ public class FragmentHouse extends Fragment {
                     case R.id.img_thumbnail3:
                         intent = new Intent(getActivity(), ActivityReggaeHouse.class);
                         if (!premium) {
-                            showAds(2);
+                            showAds();
                         } else {
                             getActivity().startActivity(intent);
                         }
@@ -107,7 +111,7 @@ public class FragmentHouse extends Fragment {
                     case R.id.img_thumbnail4:
                         intent = new Intent(getActivity(), ActivityTechnoHouse.class);
                         if (!premium) {
-                            showAds(3);
+                            showAds();
                         } else {
                             getActivity().startActivity(intent);
                         }
@@ -115,7 +119,7 @@ public class FragmentHouse extends Fragment {
                     case R.id.img_thumbnail5:
                         intent = new Intent(getActivity(), ActivityFutureHouse.class);
                         if (!premium) {
-                            showAds(4);
+                            showAds();
                         } else {
                             getActivity().startActivity(intent);
                         }
@@ -124,7 +128,7 @@ public class FragmentHouse extends Fragment {
                         if (tribal) {
                             intent = new Intent(getActivity(), ActivityTribalHouse.class);
                             if (!premium) {
-                                showAds(5);
+                                showAds();
                             } else {
                                 getActivity().startActivity(intent);
                             }
@@ -141,7 +145,7 @@ public class FragmentHouse extends Fragment {
                         if (minimal) {
                             intent = new Intent(getActivity(), ActivityMinimalHouse.class);
                             if (!premium) {
-                                showAds(6);
+                                showAds();
                             } else {
                                 getActivity().startActivity(intent);
                             }
@@ -160,28 +164,22 @@ public class FragmentHouse extends Fragment {
                 }
             }
 
-            public void showAds(int position) {
-                boolean displayed = MainActivity.displayed;
-                boolean displayed2 = MainActivity.displayed2;
-                boolean displayed3 = MainActivity.displayed3;
-                boolean displayed4 = MainActivity.displayed4;
-                a = MainActivity.start;
-                b = System.currentTimeMillis();
-
+            public void showAds() {
+                getActivity().startActivity(intent);
                 if (b - a >= 10000 && !displayed) {
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    MainActivity.displayAds();
+                    MainActivity.interstitial.show();
+                    displayed = true;
                 } else if (b - a >= 60000 && !displayed2) {
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    MainActivity.displayAds2();
+                    MainActivity.interstitial.show();
+                    displayed2 = true;
                 } else if (b - a >= 180000 && !displayed3) {
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    MainActivity.displayAds3();
+                    MainActivity.interstitial.show();
+                    displayed3 = true;
                 } else if (b - a >= 360000 && !displayed4) {
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    MainActivity.displayAds4();
+                    MainActivity.interstitial.show();
+                    displayed4 = true;
                 } else {
-                    getActivity().startActivity(intent);
+                    //Do nothing
                 }
             }
         };

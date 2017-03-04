@@ -57,8 +57,11 @@ import java.util.concurrent.TimeUnit;
 
 public class ActivityDeepHouse extends AppCompatActivity {
 
-    int color = Color.parseColor("#D32F2F");
-    int color2 = Color.parseColor("#F44336");
+    private static final int RECORDER_BPP = 16;
+    private static final String FILE_EXT = ".wav";
+    private static final String THE_LOOPPAD_FOLDER = "The Looppad";
+    private static final String RECORDER_TEMP_FILE = "record_temp.raw";
+    private static int RECORDER_SAMPLERATE = 44100;
     ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
     Runnable runnable0;
     SoundPool mSoundPool = null;
@@ -76,15 +79,10 @@ public class ActivityDeepHouse extends AppCompatActivity {
     Drawable record;
     Animation mAnimation;
     MenuItem mRecord;
-    private static final int RECORDER_BPP = 16;
-    private static final String FILE_EXT = ".wav";
-    private static final String THE_LOOPPAD_FOLDER = "The Looppad";
-    private static final String RECORDER_TEMP_FILE = "record_temp.raw";
-    private static int RECORDER_SAMPLERATE = 44100;
+    AudioManager am;
     private AudioRecord recorder = null;
     private int bufferSize;
     private Thread recordingThread = null;
-    AudioManager am;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,11 +98,13 @@ public class ActivityDeepHouse extends AppCompatActivity {
         window = this.getWindow();
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         if (android.os.Build.VERSION.SDK_INT >= 21) {
-            bar.setBackgroundDrawable(new ColorDrawable(color2));
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            window.setStatusBarColor(color);
-        } else {
-            bar.setBackgroundDrawable(new ColorDrawable(color2));
+            if (android.os.Build.VERSION.SDK_INT >= 21) {
+                bar.setBackgroundDrawable(new ColorDrawable(ContextCompat.getColor(this, R.color.DeepHousePrimary)));
+                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+                window.setStatusBarColor(ContextCompat.getColor(this, R.color.DeepHouseDark));
+            } else {
+                bar.setBackgroundDrawable(new ColorDrawable(ContextCompat.getColor(this, R.color.DeepHousePrimary)));
+            }
         }
 
         // LoaderProgres
@@ -137,7 +137,7 @@ public class ActivityDeepHouse extends AppCompatActivity {
         }
 
         // Analytics
-        t = ((AnalyticsApplication) this.getApplication()).getDefaultTracker();
+        t = ((ActivityAnalytics) this.getApplication()).getDefaultTracker();
         t.setScreenName("Deep House");
         t.enableAdvertisingIdCollection(true);
         t.send(new HitBuilders.ScreenViewBuilder().build());
@@ -453,43 +453,6 @@ public class ActivityDeepHouse extends AppCompatActivity {
         }
     }
 
-    class SoundLoader extends AsyncTask<String, Integer, String> {
-        @Override
-        protected String doInBackground(String... params) {
-            // Load the sample IDs
-            soundId[0] = mSoundPool.load(ActivityDeepHouse.this, R.raw.deephouse_bass_1, 1);
-            soundId[1] = mSoundPool.load(ActivityDeepHouse.this, R.raw.deephouse_bass_2, 1);
-            soundId[4] = mSoundPool.load(ActivityDeepHouse.this, R.raw.deephouse_bass_3, 1);
-            soundId[5] = mSoundPool.load(ActivityDeepHouse.this, R.raw.deephouse_bass_4, 1);
-            soundId[2] = mSoundPool.load(ActivityDeepHouse.this, R.raw.deephouse_fx_1, 1);
-            soundId[3] = mSoundPool.load(ActivityDeepHouse.this, R.raw.deephouse_fx_2, 1);
-            soundId[6] = mSoundPool.load(ActivityDeepHouse.this, R.raw.deephouse_fx_3, 1);
-            soundId[7] = mSoundPool.load(ActivityDeepHouse.this, R.raw.deephouse_fx_4, 1);
-            soundId[8] = mSoundPool.load(ActivityDeepHouse.this, R.raw.deephouse_kick, 1);
-            soundId[9] = soundId[8];
-            soundId[12] = soundId[8];
-            soundId[13] = soundId[8];
-            soundId[10] = mSoundPool.load(ActivityDeepHouse.this, R.raw.deephouse_lead_1, 1);
-            soundId[11] = mSoundPool.load(ActivityDeepHouse.this, R.raw.deephouse_lead_2, 1);
-            soundId[14] = mSoundPool.load(ActivityDeepHouse.this, R.raw.deephouse_lead_3, 1);
-            soundId[15] = mSoundPool.load(ActivityDeepHouse.this, R.raw.deephouse_lead_4, 1);
-            soundId[16] = mSoundPool.load(ActivityDeepHouse.this, R.raw.deephouse_loop_1, 1);
-            soundId[17] = mSoundPool.load(ActivityDeepHouse.this, R.raw.deephouse_loop_2, 1);
-            soundId[20] = mSoundPool.load(ActivityDeepHouse.this, R.raw.deephouse_loop_3, 1);
-            soundId[21] = mSoundPool.load(ActivityDeepHouse.this, R.raw.deephouse_loop_4, 1);
-            soundId[18] = mSoundPool.load(ActivityDeepHouse.this, R.raw.deephouse_perc_1, 1);
-            soundId[19] = mSoundPool.load(ActivityDeepHouse.this, R.raw.deephouse_perc_2, 1);
-            soundId[22] = mSoundPool.load(ActivityDeepHouse.this, R.raw.deephouse_perc_3, 1);
-            soundId[23] = mSoundPool.load(ActivityDeepHouse.this, R.raw.deephouse_perc_4, 1);
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(String result) {
-            super.onPostExecute(result);
-        }
-    }
-
     public void startAudio(final int i, final int j, final int k, final int l) {
         pb[i].setVisibility(View.VISIBLE);
         pb[j].setVisibility(View.INVISIBLE);
@@ -778,5 +741,42 @@ public class ActivityDeepHouse extends AppCompatActivity {
             killSoundPoolandExecutor();
         }
         finish();
+    }
+
+    class SoundLoader extends AsyncTask<String, Integer, String> {
+        @Override
+        protected String doInBackground(String... params) {
+            // Load the sample IDs
+            soundId[0] = mSoundPool.load(ActivityDeepHouse.this, R.raw.deephouse_bass_1, 1);
+            soundId[1] = mSoundPool.load(ActivityDeepHouse.this, R.raw.deephouse_bass_2, 1);
+            soundId[4] = mSoundPool.load(ActivityDeepHouse.this, R.raw.deephouse_bass_3, 1);
+            soundId[5] = mSoundPool.load(ActivityDeepHouse.this, R.raw.deephouse_bass_4, 1);
+            soundId[2] = mSoundPool.load(ActivityDeepHouse.this, R.raw.deephouse_fx_1, 1);
+            soundId[3] = mSoundPool.load(ActivityDeepHouse.this, R.raw.deephouse_fx_2, 1);
+            soundId[6] = mSoundPool.load(ActivityDeepHouse.this, R.raw.deephouse_fx_3, 1);
+            soundId[7] = mSoundPool.load(ActivityDeepHouse.this, R.raw.deephouse_fx_4, 1);
+            soundId[8] = mSoundPool.load(ActivityDeepHouse.this, R.raw.deephouse_kick, 1);
+            soundId[9] = soundId[8];
+            soundId[12] = soundId[8];
+            soundId[13] = soundId[8];
+            soundId[10] = mSoundPool.load(ActivityDeepHouse.this, R.raw.deephouse_lead_1, 1);
+            soundId[11] = mSoundPool.load(ActivityDeepHouse.this, R.raw.deephouse_lead_2, 1);
+            soundId[14] = mSoundPool.load(ActivityDeepHouse.this, R.raw.deephouse_lead_3, 1);
+            soundId[15] = mSoundPool.load(ActivityDeepHouse.this, R.raw.deephouse_lead_4, 1);
+            soundId[16] = mSoundPool.load(ActivityDeepHouse.this, R.raw.deephouse_loop_1, 1);
+            soundId[17] = mSoundPool.load(ActivityDeepHouse.this, R.raw.deephouse_loop_2, 1);
+            soundId[20] = mSoundPool.load(ActivityDeepHouse.this, R.raw.deephouse_loop_3, 1);
+            soundId[21] = mSoundPool.load(ActivityDeepHouse.this, R.raw.deephouse_loop_4, 1);
+            soundId[18] = mSoundPool.load(ActivityDeepHouse.this, R.raw.deephouse_perc_1, 1);
+            soundId[19] = mSoundPool.load(ActivityDeepHouse.this, R.raw.deephouse_perc_2, 1);
+            soundId[22] = mSoundPool.load(ActivityDeepHouse.this, R.raw.deephouse_perc_3, 1);
+            soundId[23] = mSoundPool.load(ActivityDeepHouse.this, R.raw.deephouse_perc_4, 1);
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+        }
     }
 }

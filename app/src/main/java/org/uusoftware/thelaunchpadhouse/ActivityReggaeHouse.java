@@ -57,8 +57,12 @@ import java.util.concurrent.TimeUnit;
 
 public class ActivityReggaeHouse extends AppCompatActivity {
 
-    int color = Color.parseColor("#1B5E20");
-    int color2 = Color.parseColor("#388E3C");
+    private static final int RECORDER_BPP = 16;
+    private static final String FILE_EXT = ".wav";
+    private static final String THE_LOOPPAD_FOLDER = "The Looppad";
+    private static final String RECORDER_TEMP_FILE = "record_temp.raw";
+    private static final int RECORDER_SAMPLERATE = 44100;
+    private static final int RECORDER_AUDIO_ENCODING = AudioFormat.ENCODING_PCM_16BIT;
     ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
     Runnable runnable0;
     SoundPool mSoundPool = null;
@@ -76,16 +80,10 @@ public class ActivityReggaeHouse extends AppCompatActivity {
     Drawable record;
     Animation mAnimation;
     MenuItem mRecord;
-    private static final int RECORDER_BPP = 16;
-    private static final String FILE_EXT = ".wav";
-    private static final String THE_LOOPPAD_FOLDER = "The Looppad";
-    private static final String RECORDER_TEMP_FILE = "record_temp.raw";
-    private static final int RECORDER_SAMPLERATE = 44100;
-    private static final int RECORDER_AUDIO_ENCODING = AudioFormat.ENCODING_PCM_16BIT;
+    AudioManager am;
     private AudioRecord recorder = null;
     private int bufferSize;
     private Thread recordingThread = null;
-    AudioManager am;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,11 +99,13 @@ public class ActivityReggaeHouse extends AppCompatActivity {
         window = this.getWindow();
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         if (android.os.Build.VERSION.SDK_INT >= 21) {
-            bar.setBackgroundDrawable(new ColorDrawable(color2));
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            window.setStatusBarColor(color);
-        } else {
-            bar.setBackgroundDrawable(new ColorDrawable(color2));
+            if (android.os.Build.VERSION.SDK_INT >= 21) {
+                bar.setBackgroundDrawable(new ColorDrawable(ContextCompat.getColor(this, R.color.ReggaeHousePrimary)));
+                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+                window.setStatusBarColor(ContextCompat.getColor(this, R.color.ReggaeHouseDark));
+            } else {
+                bar.setBackgroundDrawable(new ColorDrawable(ContextCompat.getColor(this, R.color.ReggaeHousePrimary)));
+            }
         }
 
         // LoaderProgres
@@ -138,7 +138,7 @@ public class ActivityReggaeHouse extends AppCompatActivity {
         }
 
         // Analytics
-        t = ((AnalyticsApplication) this.getApplication()).getDefaultTracker();
+        t = ((ActivityAnalytics) this.getApplication()).getDefaultTracker();
         t.setScreenName("Reggae House");
         t.enableAdvertisingIdCollection(true);
         t.send(new HitBuilders.ScreenViewBuilder().build());
@@ -454,43 +454,6 @@ public class ActivityReggaeHouse extends AppCompatActivity {
         }
     }
 
-    class SoundLoader extends AsyncTask<String, Integer, String> {
-        @Override
-        protected String doInBackground(String... params) {
-            // Load the sample IDs
-            soundId[0] = mSoundPool.load(ActivityReggaeHouse.this, R.raw.reggaehouse_arp_1, 1);
-            soundId[1] = mSoundPool.load(ActivityReggaeHouse.this, R.raw.reggaehouse_arp_2, 1);
-            soundId[4] = mSoundPool.load(ActivityReggaeHouse.this, R.raw.reggaehouse_arp_3, 1);
-            soundId[5] = mSoundPool.load(ActivityReggaeHouse.this, R.raw.reggaehouse_arp_4, 1);
-            soundId[2] = mSoundPool.load(ActivityReggaeHouse.this, R.raw.reggaehouse_bass_1, 1);
-            soundId[3] = mSoundPool.load(ActivityReggaeHouse.this, R.raw.reggaehouse_bass_2, 1);
-            soundId[6] = mSoundPool.load(ActivityReggaeHouse.this, R.raw.reggaehouse_bass_3, 1);
-            soundId[7] = mSoundPool.load(ActivityReggaeHouse.this, R.raw.reggaehouse_bass_4, 1);
-            soundId[8] = mSoundPool.load(ActivityReggaeHouse.this, R.raw.reggaehouse_chord_1, 1);
-            soundId[9] = mSoundPool.load(ActivityReggaeHouse.this, R.raw.reggaehouse_chord_2, 1);
-            soundId[12] = mSoundPool.load(ActivityReggaeHouse.this, R.raw.reggaehouse_chord_3, 1);
-            soundId[13] = mSoundPool.load(ActivityReggaeHouse.this, R.raw.reggaehouse_chord_4, 1);
-            soundId[10] = mSoundPool.load(ActivityReggaeHouse.this, R.raw.reggaehouse_cymbals_1, 1);
-            soundId[11] = mSoundPool.load(ActivityReggaeHouse.this, R.raw.reggaehouse_cymbals_2, 1);
-            soundId[14] = mSoundPool.load(ActivityReggaeHouse.this, R.raw.reggaehouse_cymbals_3, 1);
-            soundId[15] = mSoundPool.load(ActivityReggaeHouse.this, R.raw.reggaehouse_cymbals_4, 1);
-            soundId[16] = mSoundPool.load(ActivityReggaeHouse.this, R.raw.reggaehouse_kick, 1);
-            soundId[17] = soundId[16];
-            soundId[20] = soundId[16];
-            soundId[21] = soundId[16];
-            soundId[18] = mSoundPool.load(ActivityReggaeHouse.this, R.raw.reggaehouse_snare_1, 1);
-            soundId[19] = mSoundPool.load(ActivityReggaeHouse.this, R.raw.reggaehouse_snare_2, 1);
-            soundId[22] = mSoundPool.load(ActivityReggaeHouse.this, R.raw.reggaehouse_snare_3, 1);
-            soundId[23] = mSoundPool.load(ActivityReggaeHouse.this, R.raw.reggaehouse_snare_4, 1);
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(String result) {
-            super.onPostExecute(result);
-        }
-    }
-
     public void startAudio(final int i, final int j, final int k, final int l) {
         pb[i].setVisibility(View.VISIBLE);
         pb[j].setVisibility(View.INVISIBLE);
@@ -607,10 +570,10 @@ public class ActivityReggaeHouse extends AppCompatActivity {
     }
 
     private void copyWaveFile(String inFilename, String outFilename) {
-        FileInputStream in = null;
-        FileOutputStream out = null;
+        FileInputStream in;
+        FileOutputStream out;
         long totalAudioLen = 0;
-        long totalDataLen = totalAudioLen + 36;
+        long totalDataLen;
         long longSampleRate = RECORDER_SAMPLERATE;
         int channels = 2;
         long byteRate = RECORDER_BPP * RECORDER_SAMPLERATE * channels / 8;
@@ -748,11 +711,9 @@ public class ActivityReggaeHouse extends AppCompatActivity {
     public void onResume() {
         super.onResume();
         if (mSoundPool == null) {
-            Intent intent = new Intent(this, ActivityDeepHouse.class);
+            Intent intent = new Intent(this, ActivityReggaeHouse.class);
             startActivity(intent);
             finish();
-        } else {
-            // Do nothing
         }
     }
 
@@ -766,5 +727,42 @@ public class ActivityReggaeHouse extends AppCompatActivity {
             killSoundPoolandExecutor();
         }
         finish();
+    }
+
+    class SoundLoader extends AsyncTask<String, Integer, String> {
+        @Override
+        protected String doInBackground(String... params) {
+            // Load the sample IDs
+            soundId[0] = mSoundPool.load(ActivityReggaeHouse.this, R.raw.reggaehouse_arp_1, 1);
+            soundId[1] = mSoundPool.load(ActivityReggaeHouse.this, R.raw.reggaehouse_arp_2, 1);
+            soundId[4] = mSoundPool.load(ActivityReggaeHouse.this, R.raw.reggaehouse_arp_3, 1);
+            soundId[5] = mSoundPool.load(ActivityReggaeHouse.this, R.raw.reggaehouse_arp_4, 1);
+            soundId[2] = mSoundPool.load(ActivityReggaeHouse.this, R.raw.reggaehouse_bass_1, 1);
+            soundId[3] = mSoundPool.load(ActivityReggaeHouse.this, R.raw.reggaehouse_bass_2, 1);
+            soundId[6] = mSoundPool.load(ActivityReggaeHouse.this, R.raw.reggaehouse_bass_3, 1);
+            soundId[7] = mSoundPool.load(ActivityReggaeHouse.this, R.raw.reggaehouse_bass_4, 1);
+            soundId[8] = mSoundPool.load(ActivityReggaeHouse.this, R.raw.reggaehouse_chord_1, 1);
+            soundId[9] = mSoundPool.load(ActivityReggaeHouse.this, R.raw.reggaehouse_chord_2, 1);
+            soundId[12] = mSoundPool.load(ActivityReggaeHouse.this, R.raw.reggaehouse_chord_3, 1);
+            soundId[13] = mSoundPool.load(ActivityReggaeHouse.this, R.raw.reggaehouse_chord_4, 1);
+            soundId[10] = mSoundPool.load(ActivityReggaeHouse.this, R.raw.reggaehouse_cymbals_1, 1);
+            soundId[11] = mSoundPool.load(ActivityReggaeHouse.this, R.raw.reggaehouse_cymbals_2, 1);
+            soundId[14] = mSoundPool.load(ActivityReggaeHouse.this, R.raw.reggaehouse_cymbals_3, 1);
+            soundId[15] = mSoundPool.load(ActivityReggaeHouse.this, R.raw.reggaehouse_cymbals_4, 1);
+            soundId[16] = mSoundPool.load(ActivityReggaeHouse.this, R.raw.reggaehouse_kick, 1);
+            soundId[17] = soundId[16];
+            soundId[20] = soundId[16];
+            soundId[21] = soundId[16];
+            soundId[18] = mSoundPool.load(ActivityReggaeHouse.this, R.raw.reggaehouse_snare_1, 1);
+            soundId[19] = mSoundPool.load(ActivityReggaeHouse.this, R.raw.reggaehouse_snare_2, 1);
+            soundId[22] = mSoundPool.load(ActivityReggaeHouse.this, R.raw.reggaehouse_snare_3, 1);
+            soundId[23] = mSoundPool.load(ActivityReggaeHouse.this, R.raw.reggaehouse_snare_4, 1);
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+        }
     }
 }

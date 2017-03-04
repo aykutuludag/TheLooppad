@@ -60,16 +60,6 @@
         <item>Compre premium!</item>
     </string-array>
 
-    <!-- Nav Drawer List Item Icons -->
-    <array name="nav_drawer_icons">
-        <item>@drawable/ic_slider_preset</item>
-        <item>@drawable/ic_slider_preset</item>
-        <item>@drawable/ic_slider_preset</item>
-        <item>@drawable/ic_slider_records</item>
-        <item>@drawable/ic_slider_samples</item>
-        <item>@drawable/ic_slider_premium</item>
-    </array>
-
     <!-- Content Description -->
     <string name="desc_list_item_icon">Ícone item</string>
 

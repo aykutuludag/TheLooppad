@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.uusoftware.thelaunchpadhouse"
-    android:installLocation="auto">
+          package="org.uusoftware.thelaunchpadhouse"
+          android:installLocation="auto">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="com.android.vending.BILLING" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="com.android.vending.BILLING"/>
 
     <application
-        android:name="AnalyticsApplication"
+        android:name=".ActivityAnalytics"
         android:allowBackup="true"
         android:icon="@drawable/ic_icon"
         android:label="@string/app_name"
@@ -24,9 +24,9 @@
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity
@@ -35,63 +35,27 @@
             android:label="@string/app_name"
             android:screenOrientation="portrait">
             <intent-filter>
-                <action android:name="org.uusoftware.thelaunchpadhouse.MAINACTIVITY" />
+                <action android:name="org.uusoftware.thelaunchpadhouse.MAINACTIVITY"/>
 
-                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
         <activity
-            android:name=".ActivityAboutUs"
-            android:configChanges="orientation|keyboardHidden"
-            android:label="@string/action_about"
-            android:parentActivityName=".MainActivity"
-            android:screenOrientation="portrait">
-
-            <!-- Parent activity meta-data to support 4.0 and lower -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ActivityAboutUs" />
-
-            <intent-filter>
-                <action android:name="org.uusoftware.thelaunchpadhouse.ACTIVITYABOUTUS" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".ActivitySettings"
+            android:name=".SettingsActivity"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/action_settings"
             android:parentActivityName=".MainActivity"
-            android:screenOrientation="portrait">
+            >
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ActivitySettings" />
+                android:value=".SettingsActivity"/>
 
             <intent-filter>
-                <action android:name="org.uusoftware.thelaunchpadhouse.ACTIVITYSETTINGS" />
+                <action android:name="org.uusoftware.thelaunchpadhouse.ACTIVITYSETTINGS"/>
 
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".ActivityMediaPlayer"
-            android:configChanges="orientation|keyboardHidden"
-            android:label="@string/action_mediaplayer"
-            android:parentActivityName=".MainActivity"
-            android:screenOrientation="portrait">
-
-            <!-- Parent activity meta-data to support 4.0 and lower -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ActivityMediaPlayer" />
-
-            <intent-filter>
-                <action android:name="org.uusoftware.thelaunchpadhouse.ACTIVITYMEDIAPLAYER" />
-
-                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
         <activity
@@ -99,106 +63,101 @@
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/deephouse"
             android:parentActivityName=".MainActivity"
-            android:screenOrientation="portrait">
+            >
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ActivityDeepHouse" />
+                android:value=".ActivityDeepHouse"/>
 
             <intent-filter>
-                <action android:name="org.uusoftware.thelaunchpadhouse.ACTIVITYDEEPHOUSE" />
+                <action android:name="org.uusoftware.thelaunchpadhouse.ACTIVITYDEEPHOUSE"/>
 
-                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".ActivityTechHouse"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/techhouse"
-            android:parentActivityName=".MainActivity"
-            android:screenOrientation="portrait">
+            android:parentActivityName=".MainActivity">
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ActivityTechHouse" />
+                android:value=".ActivityTechHouse"/>
 
             <intent-filter>
-                <action android:name="org.uusoftware.thelaunchpadhouse.ACTIVITYTECHHOUSE" />
+                <action android:name="org.uusoftware.thelaunchpadhouse.ACTIVITYTECHHOUSE"/>
 
-                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".ActivityReggaeHouse"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/reggaehouse"
-            android:parentActivityName=".MainActivity"
-            android:screenOrientation="portrait">
+            android:parentActivityName=".MainActivity">
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ActivityReggaeHouse" />
+                android:value=".ActivityReggaeHouse"/>
 
             <intent-filter>
-                <action android:name="org.uusoftware.thelaunchpadhouse.ACTIVITYREGGAEHOUSE" />
+                <action android:name="org.uusoftware.thelaunchpadhouse.ACTIVITYREGGAEHOUSE"/>
 
-                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".ActivityTechnoHouse"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/technohouse"
-            android:parentActivityName=".MainActivity"
-            android:screenOrientation="portrait">
+            android:parentActivityName=".MainActivity">
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ActivityTechnoHouse" />
+                android:value=".ActivityTechnoHouse"/>
 
             <intent-filter>
-                <action android:name="org.uusoftware.thelaunchpadhouse.ACTIVITYTECHNOHOUSE" />
+                <action android:name="org.uusoftware.thelaunchpadhouse.ACTIVITYTECHNOHOUSE"/>
 
-                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".ActivityFutureHouse"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/futurehouse"
-            android:parentActivityName=".MainActivity"
-            android:screenOrientation="portrait">
+            android:parentActivityName=".MainActivity">
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ActivityFutureHouse" />
+                android:value=".ActivityFutureHouse"/>
 
             <intent-filter>
-                <action android:name="org.uusoftware.thelaunchpadhouse.ACTIVITYFUTUREHOUSE" />
+                <action android:name="org.uusoftware.thelaunchpadhouse.ACTIVITYFUTUREHOUSE"/>
 
-                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".ActivityTribalHouse"
             android:configChanges="orientation|keyboardHidden"
-            android:parentActivityName=".MainActivity"
-            android:screenOrientation="portrait">
+            android:parentActivityName=".MainActivity">
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ActivityTribalHouse" />
+                android:value=".ActivityTribalHouse"/>
 
             <intent-filter>
-                <action android:name="org.uusoftware.thelaunchpadhouse.ACTIVITYTRIBALHOUSE" />
+                <action android:name="org.uusoftware.thelaunchpadhouse.ACTIVITYTRIBALHOUSE"/>
 
-                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
         <activity
@@ -206,61 +165,35 @@
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/minimalhouse"
             android:parentActivityName=".MainActivity"
-            android:screenOrientation="portrait"
             android:theme="@style/AppTheme2">
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ActivityMinimalHouse" />
+                android:value=".ActivityMinimalHouse"/>
 
             <intent-filter>
-                <action android:name="org.uusoftware.thelaunchpadhouse.ACTIVITYMINIMALHOUSE" />
+                <action android:name="org.uusoftware.thelaunchpadhouse.ACTIVITYMINIMALHOUSE"/>
 
-                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
 
-        <!-- Receiver -->
+        <!-- AlarmReceiver -->
         <receiver android:name=".MyReceiver">
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-            </intent-filter>
-        </receiver>
-
-        <!-- Google Analytics -->
-        <service
-            android:name="com.google.android.gms.analytics.AnalyticsService"
-            android:enabled="true"
-            android:exported="false" />
-
-        <receiver
-            android:name="com.google.android.gms.analytics.CampaignTrackingReceiver"
-            android:enabled="true"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="com.android.vending.INSTALL_REFERRER" />
-            </intent-filter>
-        </receiver>
-
-        <service android:name="com.google.android.gms.analytics.CampaignTrackingService" />
-
-        <receiver
-            android:name="com.google.android.gms.analytics.AnalyticsReceiver"
-            android:enabled="true">
-            <intent-filter>
-                <action android:name="com.google.android.gms.analytics.ANALYTICS_DISPATCH" />
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
             </intent-filter>
         </receiver>
 
         <!-- AdMob -->
         <activity
             android:name="com.google.android.gms.ads.AdActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>
 
         <meta-data
             android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
+            android:value="@integer/google_play_services_version"/>
     </application>
 
 </manifest>
